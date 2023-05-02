@@ -1,0 +1,149 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{% block body_title %}
+
+<title>Reusable</title>
+<link rel="icon" type="image/png" href="{% static 'reusableLogo.png' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .center {
+    display: block;
+    max-width: 50%;
+    max-height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    img {
+    max-width: 100%;
+    height: auto;
+    }
+
+    .bg-img {
+    /* The image used */
+    background-image: url('{% static "online-shopping-ecommerce2.png" %}');
+    min-height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Needed to position the navbar */
+    position: relative;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block body_content %}
+<div class="bg-img">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light static-top navbar-collapse border-bottom" style="opacity: 80%">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="margin-right: 50px;" href="#">
+                <img src='{% static "reusableLogo.png" %}' width="38" height="38">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    {% if session %}
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black">Olá {{session.userinfo.nickname}}</a>
+                    </li>
+                    <li class="nav-item dropdown" style="padding-left: 10px;">
+                        <a class="nav-link fa fa-bell-o" style="font-size:22px;; color: black" id="notification" role="button"
+                           data-bs-toggle="dropdown"></a>
+                        <ul class="dropdown-menu dropdown-menu-end" style="text-align: center"
+                            aria-labelledby="message">
+                            <li class="dropdown-item">Notification 1</li>
+                            <li class="dropdown-item">Notification 2</li>
+                            <li class="dropdown-item">Notification 3</li>
+                            <li class="dropdown-item">Notification 4</li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown" style="padding-left: 10px;">
+                        <a class="nav-link fa fa-envelope-o" style="font-size:22px; color: black" id="message" role="button"
+                           data-bs-toggle="dropdown"></a>
+                        <ul class="dropdown-menu dropdown-menu-end" style="text-align: center"
+                            aria-labelledby="message">
+                            <li class="dropdown-item">Message 1</li>
+                            <li class="dropdown-item">Message 2</li>
+                            <li class="dropdown-item">Message 3</li>
+                            <li class="dropdown-item">Message 4</li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="padding-left: 20px;">
+                        <a class="nav-link btn btn-info btn-sm" style="color: black" href="{% url 'produtos:vender' %}">
+                            <b>Vender agora</b>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" style="padding-left: 25px; padding-right: 15px;">
+                        <a class="nav-link fa fa-bars" style="color: black; font-size: 25px;" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'mainPage:logout' %}">Logout</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'mainPage:login' %}" style="color: #76D7C4">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light static-top navbar-collapse"
+         style="opacity: 80%">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'mainPage:login' %}" style="color: #76D7C4; font-size: 20px"><b>Homem</b></a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 50px;">
+                        <a class="nav-link" href="{% url 'mainPage:login' %}" style="color: #76D7C4; font-size: 20px"><b>Mulher</b></a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 50px;">
+                        <a class="nav-link" href="{% url 'mainPage:login' %}" style="color: #76D7C4; font-size: 20px"><b>Criança</b></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function () {
+        const botao = document.getElementById('box');
+
+        botao.addEventListener('mouseout', function handleMouseOut() {
+            botao.style.color = 'black';
+        });
+    }
+
+
+
+</script>
+{% endblock %}

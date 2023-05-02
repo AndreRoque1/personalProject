@@ -1,0 +1,102 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{% block body_title %}
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src='{% static "reusableLogo.png" %}' width="38" height="38">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <!--
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mainPage:login' %}" style="color: #76D7C4">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">/</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mainPage:signup' %}" style="color: #76D7C4">Sign Up</a>
+                </li>
+                <!--
+                <li class="nav-item dropdown">
+                    <a class="nav-link navbar-toggler-icon" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .center {
+    display: block;
+    max-width: 50%;
+    max-height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    html, body {
+    height: 100%;
+    margin:0;
+    padding:0;
+    }
+
+    cont {
+    position:relative;
+    height: 100%;
+    width:100%;
+    }
+
+    cont imag {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block body_content %}
+
+    <!-- Imagem logotipo da empresa -->
+    <cont>
+        <imag src='{% static "online-shopping-ecommerce.png" %}' class="center">
+    </cont>
+
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+</script>
+{% endblock %}
