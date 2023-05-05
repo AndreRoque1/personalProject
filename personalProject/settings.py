@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import django_heroku
+import dj_database_url
 from dotenv import load_dotenv, find_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +29,11 @@ SECRET_KEY = 'django-insecure-lu9r@z8!96$n%y+^^=8m7&7gieqggf61e-p_55p%lfq@8%*spv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< Updated upstream
 ALLOWED_HOSTS = ['192.168.1.68', '127.0.0.1:3000', '127.0.0.1', 'localhost', '192.168.1.4']
+=======
+ALLOWED_HOSTS = ['192.168.1.68', '127.0.0.1:3000', '127.0.0.1', 'localhost', '*']
+>>>>>>> Stashed changes
 
 
 # Application definition
@@ -128,6 +134,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
