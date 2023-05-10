@@ -1,0 +1,14 @@
+To start using Reusable app you should:
+1- Open console in Virtual environment directory
+cd ../venv/Scripts/activate
+
+2- Go to project directory
+cd ../personalProject
+2.1- Create migrations - prepare DB for changes
+python manage.py makemigrations
+2.2- Proceed to migrate - efective changes
+python manage.py migrate
+2.3- Run server
+python manage.py runserver
+
+Start using Reusable free!!
